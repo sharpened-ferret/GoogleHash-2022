@@ -15,6 +15,7 @@ public class Parser {
         System.out.println(filepath);
         int lineNum = 0;
         int personNum = 0;
+        int projectNum = 0;
 
         try {
             File input = new File(filepath);
@@ -41,7 +42,22 @@ public class Parser {
                             lineNum++;
                             currentPerson.skills.put(skillData[0], Integer.parseInt(skillData[1]));
                         }
+                        numPeople++;
                         people.add(currentPerson);
+                    }
+                    else {
+                        if (projectNum < numProjects) {
+                            String[] projDesc = lineData.split(" ");
+                            lineNum++;
+                            Project currentProj = new Project(
+                                        projDesc[0],
+                                        Integer.parseInt(projDesc[1]),
+                                        Integer.parseInt(projDesc[2]),
+                                        Integer.parseInt(projDesc[3]),
+                                        Integer.parseInt(projDesc[4])
+                                    );
+
+                        }
                     }
                 }
 

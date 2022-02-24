@@ -33,7 +33,7 @@ public class MainAsinsa {
                             if (!(inUsePerson.contains(person)) && (person.skills.containsKey(requiredSkills.name))) {
                                 //                        System.out.println();
                                 if (person.skills.get(requiredSkills.name) >= requiredSkills.level
-                                        || person.skills.get(requiredSkills.name) >= requiredSkills.level - 1 && mentorSkills.contains(requiredSkills.getName())) {
+                                        || (person.skills.get(requiredSkills.name) >= requiredSkills.level - 1 && mentorSkills.contains(requiredSkills.getName()))) {
                                     //                            System.out.println(project.name + person.name + requiredSkills.name);
                                     members.append(person.name + " ");
                                     for (int j = 0; j < project.reqSkills.size(); j++) {

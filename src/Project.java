@@ -1,7 +1,4 @@
-import javafx.util.Pair;
-
 import java.util.ArrayList;
-
 
 public class Project {
     public String name;
@@ -10,7 +7,7 @@ public class Project {
     public int bestBefore;
     public int roles;
     public ArrayList<Person> people;
-    public ArrayList<Pair<String, Integer>> reqSkills;
+    public ArrayList<ReqSkill> reqSkills;
 
     public Project(String name, int duration, int score, int bestBefore, int roles) {
         this.name = name;
@@ -26,8 +23,7 @@ public class Project {
     }
 
     public void addSkill(String skillName, int level) {
-        // Use .getKey() to return name and .getValue() to return level
-        Pair<String, Integer> newSkill = new Pair<>(skillName, level);
+        ReqSkill newSkill = new ReqSkill(skillName, level);
         reqSkills.add(newSkill);
     }
 }

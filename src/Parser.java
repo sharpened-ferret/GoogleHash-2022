@@ -71,7 +71,7 @@ public class Parser {
                 }
 
             }
-
+            inputReader.close();
         } catch (FileNotFoundException ex) {
             System.out.println("An error occurrec:");
             ex.printStackTrace();

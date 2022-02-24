@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class MainAsinsa {
@@ -18,19 +20,39 @@ public class MainAsinsa {
                 PrintWriter printWriter = new PrintWriter(new FileWriter("src/output/" + inputFilepath[i] + ".out.txt"));
                 StringBuilder outputString = new StringBuilder();
                 int completedProjects = 0;
+                parse.projects.sort(Comparator.comparing(Project::getDuration));
+                //Collections.shuffle(parse.projects);
 
                 for (Project project : parse.projects) {
+                    Collections.shuffle(parse.people);
                     inUsePerson = new ArrayList<>();
                     //System.out.println(project.name);
                     StringBuilder members = new StringBuilder();
                     int rolesToFill = project.roles;
                     ArrayList<String> mentorSkills = new ArrayList<>();
                     for (ReqSkill requiredSkills : project.reqSkills) {
+
+                        boolean everybodyUsed = false;
+
+                        for (Person person : parse.people) {
+                            if (person.alreadyUsed) {
+                                everybodyUsed = true;
+                            }
+                        }
+
+                        if (everybodyUsed) {
+                            for (Person person : parse.people) {
+                                person.alreadyUsed = false;
+                            }
+                        }
                         for (Person person : parse.people) {
                             //String[] skill = person.skills.containsKey().split("=");
                             //skill=num
                             //skill
-                            if (!(inUsePerson.contains(person)) && (person.skills.containsKey(requiredSkills.name))) {
+
+
+
+                            if (!person.alreadyUsed && !(inUsePerson.contains(person)) && (person.skills.containsKey(requiredSkills.name))) {
                                 //                        System.out.println();
                                 if (person.skills.get(requiredSkills.name) >= requiredSkills.level
                                         || (person.skills.get(requiredSkills.name) >= requiredSkills.level - 1 && mentorSkills.contains(requiredSkills.getName()))) {
@@ -47,6 +69,7 @@ public class MainAsinsa {
                                     }
                                     rolesToFill--;
                                     inUsePerson.add(person);
+                                    person.alreadyUsed = true;
 //                                    if (person.skills.get(requiredSkills.name) <= requiredSkills.level){
 //                                        person.learn(requiredSkills.name);
 //                                    }

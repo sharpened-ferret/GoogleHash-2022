@@ -4,10 +4,12 @@ import java.util.Objects;
 public class Person {
     public String name;
     public HashMap<String, Integer> skills;
+    public Boolean alreadyUsed;
 
     public Person(String name, HashMap<String, Integer> skills) {
         this.name = name;
         this.skills = skills;
+        this.alreadyUsed = false;
     }
 
     @Override

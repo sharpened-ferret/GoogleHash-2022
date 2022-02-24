@@ -61,8 +61,9 @@ public class Parser {
                                 String roleLine = inputReader.nextLine();
                                 String[] roleData = roleLine.split(" ");
                                 lineNum++;
-                                //TODO Create and assign role to project
+                                currentProj.addSkill(roleData[0], Integer.parseInt(roleData[1]));
                             }
+                            projects.add(currentProj);
                             numProjects++;
                         }
                     }

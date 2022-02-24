@@ -22,4 +22,9 @@ public class Person {
     public int hashCode() {
         return Objects.hash(name, skills);
     }
+
+    public void learn(String skill) {
+        skills.replace(skill, skills.get(skill), skills.get(skill) + 1);
+    }
+
 }

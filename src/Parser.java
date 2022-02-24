@@ -43,7 +43,7 @@ public class Parser {
                             lineNum++;
                             currentPerson.skills.put(skillData[0], Integer.parseInt(skillData[1]));
                         }
-                        numPeople++;
+                        personNum++;
                         people.add(currentPerson);
                     }
                     else {
@@ -65,7 +65,7 @@ public class Parser {
                                 currentProj.addSkill(roleData[0], Integer.parseInt(roleData[1]));
                             }
                             projects.add(currentProj);
-                            numProjects++;
+                            projectNum++;
                         }
                     }
                 }

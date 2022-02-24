@@ -48,15 +48,22 @@ public class Parser {
                     else {
                         if (projectNum < numProjects) {
                             String[] projDesc = lineData.split(" ");
+                            int numRoles = Integer.parseInt(projDesc[4]);
                             lineNum++;
                             Project currentProj = new Project(
                                         projDesc[0],
                                         Integer.parseInt(projDesc[1]),
                                         Integer.parseInt(projDesc[2]),
                                         Integer.parseInt(projDesc[3]),
-                                        Integer.parseInt(projDesc[4])
+                                        numRoles
                                     );
-
+                            for (int i = 0; i < numRoles; i++) {
+                                String roleLine = inputReader.nextLine();
+                                String[] roleData = roleLine.split(" ");
+                                lineNum++;
+                                //TODO Create and assign role to project
+                            }
+                            numProjects++;
                         }
                     }
                 }

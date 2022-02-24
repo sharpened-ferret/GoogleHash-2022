@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Parser {
@@ -8,10 +9,12 @@ public class Parser {
     public int numPeople;
 
     public ArrayList<Person> people = new ArrayList<>();
+    public ArrayList<Project> projects = new ArrayList<>();
 
     public Parser(String filepath) {
         System.out.println(filepath);
         int lineNum = 0;
+        int personNum = 0;
 
         try {
             File input = new File(filepath);
@@ -26,7 +29,21 @@ public class Parser {
                     this.numProjects = Integer.parseInt(dataArray[1]);
                     lineNum += 1;
                 }
-
+                else {
+                    if (personNum < numPeople) {
+                        String[] personDescription = lineData.split(" ");
+                        lineNum++;
+                        int numSkills = Integer.parseInt(personDescription[1]);
+                        Person currentPerson = new Person(personDescription[0], new HashMap<>());
+                        for (int i = 0; i < numSkills; i++) {
+                            String skillLine = inputReader.nextLine();
+                            String[] skillData = skillLine.split(" ");
+                            lineNum++;
+                            currentPerson.skills.put(skillData[0], Integer.parseInt(skillData[1]));
+                        }
+                        people.add(currentPerson);
+                    }
+                }
 
             }
 

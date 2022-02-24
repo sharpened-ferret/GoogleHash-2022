@@ -37,7 +37,7 @@ public class MainJosh {
                                     inUsePerson.add(person);
 //                                    if (person.skills.get(requiredSkills.name) <= requiredSkills.level){
 //                                        person.learn(requiredSkills.name);
-                                    }
+//                                    }
                                     break;
                                 }
                             }

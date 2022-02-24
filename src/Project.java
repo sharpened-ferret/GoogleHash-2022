@@ -26,6 +26,7 @@ public class Project {
     }
 
     public void addSkill(String skillName, int level) {
+        // Use .getKey() to return name and .getValue() to return level
         Pair<String, Integer> newSkill = new Pair<>(skillName, level);
         reqSkills.add(newSkill);
     }

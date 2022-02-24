@@ -23,12 +23,13 @@ public class Parser {
 
             while (inputReader.hasNextLine()) {
                 String lineData = inputReader.nextLine();
+                System.out.println(String.format("Line %d: %s", lineNum+1, lineData));
 
                 if (lineNum == 0) {
                     String[] dataArray = lineData.split(" ");
                     this.numPeople = Integer.parseInt(dataArray[0]);
                     this.numProjects = Integer.parseInt(dataArray[1]);
-                    lineNum += 1;
+                    lineNum ++;
                 }
                 else {
                     if (personNum < numPeople) {

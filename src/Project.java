@@ -26,4 +26,12 @@ public class Project {
         ReqSkill newSkill = new ReqSkill(skillName, level);
         reqSkills.add(newSkill);
     }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public int getBestBefore() {
+        return bestBefore;
+    }
 }

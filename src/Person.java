@@ -24,7 +24,7 @@ public class Person {
     }
 
     public void learn(String skill) {
-        skills.replace(skill, skills.get(skill), skills.get(skill) + 1);
+        skills.replace(skill, skills.get(skill) + 1);
     }
 
 }

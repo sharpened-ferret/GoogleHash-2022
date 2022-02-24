@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainJosh {
 
@@ -17,7 +19,7 @@ public class MainJosh {
                 PrintWriter printWriter = new PrintWriter(new FileWriter("src/output/" + inputFilepath[i] + ".out.txt"));
                 StringBuilder outputString = new StringBuilder();
                 int completedProjects = 0;
-
+                Collections.sort(parse.projects, Comparator.comparing(Project::getBestBefore));
                 for (Project project : parse.projects) {
                     inUsePerson = new ArrayList<>();
                     //System.out.println(project.name);

@@ -1,4 +1,4 @@
-import java.util.HashSet;
+import java.util.ArrayList;
 
 public class Project {
     public String name;
@@ -6,7 +6,7 @@ public class Project {
     public int score;
     public int bestBefore;
     public int roles;
-    public HashSet<Person> people;
+    public ArrayList<Person> people;
 
     public Project(String name, int duration, int score, int bestBefore, int roles) {
         this.name = name;
